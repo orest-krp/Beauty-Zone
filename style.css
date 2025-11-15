@@ -18,23 +18,29 @@
 body {
   font-family: "Roboto", sans-serif;
   color: var(--primary);
+  font-size: 1.8rem;
+  line-height: 1.8rem;
 }
 
 .container {
   max-width: 1240px;
+  padding: 0 2rem;
   margin: 0 auto;
+}
+
+.accent {
+  color: var(--secondary);
 }
 
 /*
    Header
 */
 .header {
-  position: fixed;
-  top: 0;
+  position: relative;
   min-width: 100%;
-  background-color: var(--header-bg);
-  font-size: 1.8rem;
-  padding: 1.6rem 2rem;
+  font-size: 1.6rem;
+  padding: 1.6rem 0;
+  z-index: 1000;
 }
 
 .header-container {
@@ -49,8 +55,8 @@ body {
 .logo {
   font-family: "Play", sans-serif;
   font-weight: 700;
-  font-size: 2.2rem;
-  line-height: 2.1rem;
+  font-size: 1.6rem;
+  line-height: 1.5rem;
   text-transform: capitalize;
   color: var(--secondary);
 }
@@ -73,7 +79,7 @@ body {
 }
 
 .nav-list {
-  gap: 5.6rem;
+  gap: 3rem;
 }
 
 .nav-item a:hover {
@@ -117,7 +123,6 @@ body {
   align-items: end;
   justify-content: space-between;
   background: none;
-  border: none;
   cursor: pointer;
   padding: 0;
   font-size: 0;
@@ -148,7 +153,7 @@ body {
 
 .menu-toggle.active .bar:nth-child(1) {
   width: 20px;
-  transform: translateY(4px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
@@ -175,7 +180,8 @@ body {
   background: #fff;
   opacity: 0;
   transform: translateX(-100%);
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease-out;
+  font-size: 1.4rem;
 }
 
 .mobile-nav.active {
@@ -199,6 +205,11 @@ body {
     display: none;
   }
 
+  .logo {
+    font-size: 2.2rem;
+    line-height: 2.1rem;
+  }
+
   .main-nav,
   .social-nav {
     display: block;
@@ -209,16 +220,314 @@ body {
   }
 
   .header {
-    padding: 3.2rem 2rem;
+    padding: 3.2rem 0;
+    background-color: var(--header-bg);
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
   .header {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .nav-list {
     gap: 3rem;
+  }
+}
+
+/* Hero section */
+
+.hero {
+  position: relative;
+  margin-top: -106px;
+  padding-top: 129px;
+  padding-bottom: 122px;
+  position: relative;
+  background: linear-gradient(
+    89.38deg,
+    #ffffff 30.62%,
+    rgba(255, 255, 255, 0.850898) 41.31%,
+    rgba(255, 255, 255, 0.193204) 58.65%,
+    rgba(255, 255, 255, 0) 72.78%
+  );
+}
+
+.hero-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-container {
+  display: flex;
+  padding: 0 0.8rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  max-width: 52rem;
+  text-align: center;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--secondary);
+
+  font-size: 5.4rem;
+  line-height: 4.6rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+}
+
+.hero-offer {
+  margin-top: 3.2rem;
+  max-width: 22rem;
+}
+
+.hero-offer-btn {
+  width: 23rem;
+  height: 5.4rem;
+  border-radius: 3.2rem;
+  padding: 1.6rem 2.4rem;
+  background: var(--secondary);
+  color: #fff;
+  font-size: 1.6rem;
+  transition: 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.hero-offer-btn:hover,
+.hero-offer-btn:focus {
+  border: 2px solid var(--secondary);
+  background: transparent;
+  color: var(--secondary);
+}
+
+.hero-offer-text {
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 126px;
+    padding-bottom: 188px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
+    padding: 0 0 0 20rem;
+    align-items: start;
+  }
+
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    text-align: start;
+    font-size: 14rem;
+    margin-top: 1.6rem;
+    line-height: 11.4rem;
+  }
+
+  .hero-offer-text {
+    margin-top: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  .hero-offer {
+    margin-top: 4rem;
+  }
+
+  .hero-offer-btn {
+    font-size: 1.8rem;
+    padding: 1.6rem 3.2rem;
+  }
+}
+
+/* Why us section */
+.about {
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+.about-title {
+  font-weight: 500;
+  line-height: 100%;
+  font-size: 3.2rem;
+}
+
+.about-text-content {
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.about-container {
+  display: grid;
+  gap: 2.8rem;
+  grid-template-columns: 1fr;
+}
+
+.about-images {
+  display: none;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+}
+
+.about-image {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 240px;
+  height: 240px;
+}
+
+.about-image2 {
+  align-self: self-end;
+}
+
+.star {
+  position: absolute;
+}
+
+.star1 {
+  display: none;
+}
+
+.star2 {
+  display: none;
+}
+
+.star3 {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 6.4rem;
+    line-height: 100%;
+  }
+
+  .about-text-content {
+    margin-top: 4rem;
+    gap: 4rem;
+    font-size: 2.2rem;
+    line-height: 3.8rem;
+  }
+}
+
+.mobile-star {
+  position: absolute;
+  right: 5%;
+  bottom: -5%;
+}
+
+@media (min-width: 1024px) {
+  .about-images {
+    display: flex;
+  }
+
+  .about-image {
+    width: 327px;
+    height: 327px;
+  }
+
+  .about-container {
+    grid-template-columns: minmax(0, 710px) 1fr;
+  }
+
+  .star {
+    display: block;
+  }
+
+  .star1 {
+    top: 50%;
+    left: 20%;
+  }
+
+  .star2 {
+    top: 0;
+    right: 0;
+  }
+
+  .star3 {
+    top: 40%;
+    right: 5%;
+  }
+
+  .mobile-star {
+    display: none;
+  }
+}
+
+/* Benefits section */
+
+.benefits {
+  padding-top: 12rem;
+  background: url("images/icons/background.svg") no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.benefits-title {
+  font-weight: 500;
+  font-size: 3.2rem;
+  line-height: 100%;
+  text-align: center;
+  max-width: 432px;
+  margin: 0 auto;
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+.benefits-item {
+  padding: 2.4rem 3.2rem;
+  box-shadow: 0px 4px 4px 0px rgba(168, 198, 245, 0.38);
+  border-radius: 2.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  background: #fff;
+  line-height: 2.4rem;
+}
+
+.benefits-item img {
+  width: fit-content;
+}
+
+@media (min-width: 768px) {
+  .benefits {
+    padding-top: 20rem;
+  }
+
+  .benefits-title {
+    font-size: 6.4rem;
+  }
+
+  .benefits-list {
+    grid-template-columns: minmax(0, 316px) minmax(0, 316px) minmax(0, 316px);
+    justify-content: space-between;
+    margin-top: 4.2rem;
+  }
+
+  .benefits-container {
+    max-width: 1060px;
+    margin: 0 auto;
   }
 }
