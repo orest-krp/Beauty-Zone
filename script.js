@@ -1,8 +1,17 @@
 const menuToggle = document.querySelector(".header__menu-toggle");
 const mobileNavigation = document.querySelector(".header__mobile-nav");
+
+let isOpen = false;
+
 menuToggle.addEventListener("click", () => {
+  isOpen = !isOpen;
   menuToggle.classList.toggle("active");
   mobileNavigation.classList.toggle("active");
+  mobileNavigation.setAttribute("aria-hidden", !isOpen);
+  const links = mobileNavigation.querySelectorAll(".header__nav-link");
+  links.forEach((link) => {
+    link.setAttribute("tabindex", isOpen ? "0" : "-1");
+  });
 });
 
 const form = document.querySelector(".contacts__form");

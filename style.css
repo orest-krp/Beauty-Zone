@@ -40,6 +40,16 @@ body {
   text-align: center;
 }
 
+.menu-link:hover,
+.menu-link:focus {
+  color: var(--secondary);
+}
+
+.social-link:hover,
+.social-link:focus {
+  filter: var(--secondary-color-filter);
+}
+
 @media (min-width: 768px) {
   .section-title {
     font-size: 6.4rem;
@@ -91,10 +101,6 @@ body {
   gap: 3rem;
 }
 
-.header__nav-item a:hover {
-  color: var(--secondary);
-}
-
 /* Social Navigation */
 .header__social {
   display: none;
@@ -117,11 +123,6 @@ body {
 
 .header__social-link {
   filter: var(--primary-color-filter);
-}
-
-.header__social-link:hover,
-.header__social-link:focus {
-  filter: var(--secondary-color-filter);
 }
 
 /* Mobile Menu Toggle (Hamburger) */
@@ -177,7 +178,7 @@ body {
 
 /* Mobile Navigation */
 .header__mobile-nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: -1;
@@ -189,11 +190,17 @@ body {
   transform: translateX(-100%);
   transition: all 0.3s ease-out;
   font-size: 1.4rem;
+  pointer-events: none;
+}
+
+.header__nav-link {
+  pointer-events: inherit;
 }
 
 .header__mobile-nav.active {
   transform: translateX(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
 .header__mobile-nav .header__nav-list {
@@ -287,11 +294,10 @@ body {
 
 .hero__offer {
   margin-top: 3.2rem;
-  max-width: 22rem;
+  max-width: 23rem;
 }
 
 .hero__offer-btn {
-  max-width: 23rem;
   width: 100%;
   border-radius: 3.2rem;
   padding: 1.6rem 2.4rem;
@@ -641,6 +647,14 @@ body {
   max-width: 1060px;
 }
 
+.contacts__policy-link {
+  text-decoration: underline;
+}
+
+.contacts__policy-link:hover {
+  color: #fff;
+}
+
 @media (min-width: 1024px) {
   .map {
     order: -1;
@@ -709,18 +723,8 @@ footer::before {
   align-items: start;
 }
 
-.footer__menu-item:hover,
-.footer__menu-item:focus {
-  color: var(--secondary);
-}
-
-.footer__social-item {
+.footer__social-link {
   filter: var(--white-color-filter);
-}
-
-.footer__social-item:hover,
-.footer__social-item:focus {
-  filter: var(--secondary-color-filter);
 }
 
 .footer__contacts {
